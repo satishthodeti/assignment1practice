@@ -1,0 +1,32 @@
+.searchDetails-container {
+  background-color: #3367d6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.img-main {
+  padding: 20px;
+  background-color: #3367d6;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.input {
+  background-color: #2850a7;
+  outline: none;
+  color: #ffffff;
+  padding: 10px;
+}
+.search {
+  background-color: #2850a7;
+  outline: none;
+  padding: 8px;
+  margin-right: 5px;
+}
+.unorder-list {
+  box-shadow: 10px 10px 10px 10px #ececec;
+  margin: 40px;
+  border-radius: 10px;
+  padding: 10px;
+  flex-wrap: wrap;
+}
