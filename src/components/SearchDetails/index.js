@@ -68,7 +68,6 @@ const initialHistoryList = [
     domainUrl: 'stackoverflow.com',
     url: 'https://www.stackoverflow.com',
   },
-
   {
     id: 8,
     timeAccessed: '09:25 AM',
@@ -90,18 +89,29 @@ const initialHistoryList = [
 class SearchDetails extends Component {
   state = {
     searchInput: '',
+    itemsInitialHistoryList: initialHistoryList,
   }
 
-  //   onChangeSearchInput = event => {
-  //     this.setState({searchInput: event.target.value})
-  //   }
+  onChangeSearchInput = event => {
+    this.setState({searchInput: event.target.value})
+    console.log(event.target.value)
+  }
+
+  onDeleteCode = id => {
+    const {itemsInitialHistoryList} = this.state
+    const filteredData = itemsInitialHistoryList.filter(each => each.id !== id)
+    this.setState({
+      itemsInitialHistoryList: filteredData,
+    })
+  }
 
   render() {
-    const searchInput = this.state
+    const {searchInput, itemsInitialHistoryList} = this.state
 
-    // const searchHistoryResults = initialHistoryList.filter(each =>
-    //   each.title.toLowerCase().includes(searchInput.toLowerCase()),
-    // )
+    const searchHistoryResults = itemsInitialHistoryList.filter(each =>
+      each.title.toLowerCase().includes(searchInput.toLowerCase()),
+    )
+    console.log(searchHistoryResults)
 
     return (
       <div>
@@ -117,22 +127,53 @@ class SearchDetails extends Component {
             className="search"
           />
           <input
-            type="Search history"
+            type="Search"
             className="input"
             placeholder="Search history"
             value={searchInput}
             onChange={this.onChangeSearchInput}
           />
         </div>
+        {searchHistoryResults.length <= 0 ? (
+          <div className="error-msg">
+            <p>There is no history to show</p>
+          </div>
+        ) : (
+          <div className="button-container">
+            <ul className="unorder-list">
+              {searchHistoryResults.map(eachItemDetails => (
+                <SearchItems
+                  onDeleteCode={this.onDeleteCode}
+                  ItemDetails={eachItemDetails}
+                  key={eachItemDetails.id}
+                />
+              ))}
+            </ul>
+          </div>
+        )}
 
-        <ul className="unorder-list">
-          {initialHistoryList.map(eachItemDetails => (
-            <SearchItems
-              ItemDetails={eachItemDetails}
-              key={eachItemDetails.id}
-            />
-          ))}
-        </ul>
+        <div className="footer">
+          <div className="bottom">
+            <a
+              href="https://www.linkedin.com/in/satishthodeti/"
+              rel="noreferrer"
+              target="_blank"
+              className="link1"
+            >
+              www.linkedin.com
+            </a>
+            <p>Developed By Satish Thodeti</p>
+
+            <a
+              href="https://github.com/satishthodeti"
+              rel="noreferrer"
+              target="_blank"
+              className="link2"
+            >
+              www.github.com
+            </a>
+          </div>
+        </div>
       </div>
     )
   }

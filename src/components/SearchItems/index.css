@@ -1,11 +1,25 @@
 .Items-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
 }
 .delete {
   height: 30px;
+}
+button {
+  cursor: pointer;
+  background-color: #ffffff;
+  outline: none;
+
+  border-width: 0px;
+}
+.details-center-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 50%;
 }
