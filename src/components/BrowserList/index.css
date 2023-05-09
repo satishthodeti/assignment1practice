@@ -1,0 +1,55 @@
+.history-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 15px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.time-accessed {
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-weight: 600;
+  color: #475569;
+  margin: 15px;
+}
+
+.title {
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-weight: 600;
+  color: #475569;
+  margin: 15px;
+}
+
+.domain-url {
+  font-family: 'Roboto';
+  font-size: 12px;
+  font-weight: 500;
+  color: #64748b;
+}
+
+.logo-url {
+  margin: 15px;
+  height: 50px;
+  height: 50px;
+}
+
+.delete-image {
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+a {
+  color: blue;
+  font-size: 15px;
+}
